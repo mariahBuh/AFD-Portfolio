@@ -1,0 +1,45 @@
+.marqueeWrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 14px 0;
+}
+
+.marquee {
+  display: flex;
+  gap: 32px;
+  white-space: nowrap;
+  animation: scroll 28s linear infinite;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2b2b2b;
+}
+
+.separator {
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}

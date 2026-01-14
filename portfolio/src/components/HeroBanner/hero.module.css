@@ -56,21 +56,52 @@
   margin-top: 20px;
 }
 
+
 .cta {
-  background-color: #383838;
-  color: #ffffff;
-  border: none;
+  padding: 10px 38px;
   border-radius: 999px;
-  padding: 12px 28px;
-  font-size: 14px;
+  border: none;
+  background-color: #383838;
+  color: white;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
 }
 
-.cta:hover {
-  opacity: 0.9;
+.ctaInner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
+
+/* Text stays perfectly centred */
+.ctaText {
+  transition: transform 0.3s ease;
+}
+
+.ctaArrow {
+  position: absolute;
+  right: -22px;              
+  opacity: 0;
+  transform: translateX(-6px) ;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover */
+.cta:hover .ctaText {
+  transform: translateX(-6px);
+}
+
+.cta:hover .ctaArrow {
+  opacity: 1;
+  transform: translateX(0) ;
+}
+
+
 
 /* Ticker container */
 .ticker {
@@ -114,3 +145,12 @@
     animation: none;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .ctaText,
+  .ctaArrow {
+    transition: none;
+  }
+}
+

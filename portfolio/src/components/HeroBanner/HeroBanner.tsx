@@ -1,5 +1,6 @@
 import styles from "./hero.module.css";
 import HeaderContent from "../Header/headerContent.tsx";
+import HeroScroll from "./heroScroll.tsx";
 
 export default function Hero() {
   return (
@@ -9,36 +10,20 @@ export default function Hero() {
       </header>
       <div className={styles.content}>
         <h1 className={styles.title}>My Portfolio</h1>
-
         <p className={styles.subtitle}>
           showcasing my work and passion for design <br />& development.
         </p>
 
-        <button className={styles.cta}>View projects</button>
+        <button className={styles.cta}>
+          <span className={styles.ctaInner}>
+            <span className={styles.ctaText}>View projects</span>
+            <span className={styles.ctaArrow}>→</span>
+          </span>
+        </button>
       </div>
-      {/* Scrolling skills bar */}
-      <div className={styles.ticker} aria-hidden="true">
-        <div className={styles.track}>
-          <span>Interactive Design</span>
-          <span>UI</span>
-          <span>Branding</span>
-          <span>Web Experience</span>
-          <span>Video Editing</span>
-          <span>Front End</span>
-          <span>HTML</span>
-          <span>Web Design</span>
 
-          {/* duplicate for seamless loop */}
-          <span>Interactive Design</span>
-          <span>UI</span>
-          <span>Branding</span>
-          <span>Web Experience</span>
-          <span>Video Editing</span>
-          <span>Front End</span>
-          <span>HTML</span>
-          <span>Web Design</span>
-        </div>
-      </div>
+      {/* Scrolling skills bar */}
+      <HeroScroll />
     </section>
   );
 }
