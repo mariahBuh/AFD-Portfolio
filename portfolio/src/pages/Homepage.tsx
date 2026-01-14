@@ -1,3 +1,5 @@
+import Hero from "../components/HeroBanner/HeroBanner";
+
 export default function HomePage() {
-  return <div>Home</div>;
+  return <Hero />;
 }

@@ -1,0 +1,144 @@
+.footer {
+    background-color: #70A4E7; 
+    color: #ffffff;
+    padding: 48px 32px 24px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+
+
+.logo {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #70A4E7;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.socials a:hover {
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.socialIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Links & Contact */
+.links,
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.iconWrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapper img {
+  width: 14px;
+  height: 12px;
+}
+
+.links h4,
+.contactSection h4 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.links a, .contactList a{
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.links a:hover {
+  color: #f1f5fe;
+  transition: color 0.3s ease;
+  font-weight: 600;
+}
+
+.contactList a:hover {
+  color: #fff;
+
+}
+
+/* Bottom bar */
+.bottom {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    align-content: center;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
