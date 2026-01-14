@@ -1,0 +1,333 @@
+.aboutSection {
+  padding: 4rem 2rem;
+  background-color: #fafafa;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+}
+
+/* LEFT */
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  animation: floatImage 5s ease-in-out infinite;
+  transition: transform 0.4s ease;
+}
+
+.illustration:hover {
+  transform: scale(1.05);
+}
+
+@keyframes floatImage {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* RIGHT */
+.right {
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 300;
+  color: #666;
+  padding: 5px 25px;
+  width: fit-content;
+  border-radius: 15px;
+
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, #70a4e7, #fdb89d) border-box;
+
+  border: 2px solid transparent;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.statCard {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  animation: scaleIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.statCard:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.statCard:hover .statNumber,
+.statCard:hover .statLabel {
+  color: #fff;
+}
+
+.statCard:hover {
+  background: #70a4e7;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.right {
+  min-width: 0; 
+}
+
+.left {
+  min-width: 0; 
+}
+
+
+.skillsScroller {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 16px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  position: relative;
+}
+
+.skillsScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.skillsTrack {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: nowrap;
+  width: max-content;   
+}
+
+
+.skillCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 0 0 100px;
+  height: 60px;
+}
+
+.skillCard img {
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+}
+
+.skillCard:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+.skillsScroller::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  background: linear-gradient(to left, #fafafa, transparent);
+  pointer-events: none;
+}
+
+
+/* BUTTONS */
+.CVButton,
+.learnButton {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  margin-right: 10px;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.CVButton {
+  background: #7ba3e8;
+  color: white;
+}
+
+.CVButtonInner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.CVButtonText {
+  transition: transform 0.3s ease;
+}
+
+.CVButtonArrow {
+  position: absolute;
+  right: -16px;              
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.CVButton:hover .CVButtonText {
+  transform: translateX(-6px);
+}
+
+.CVButton:hover .CVButtonArrow {
+  opacity: 1;
+  transform: translateX(0) ;
+}
+
+.learnButton {
+  background: #333;
+  color: white;
+}
+
+.learnButtonInner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.learnButtonText {
+  transition: transform 0.3s ease;
+}
+
+.learnButtonArrow {
+  position: absolute;
+  right: -16px;              
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.learnButton:hover .learnButtonText {
+  transform: translateX(-6px);
+}
+
+.learnButton:hover .learnButtonArrow {
+  opacity: 1;
+  transform: translateX(0) ;
+}
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .illustration {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .aboutSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .stats {
+    gap: 1rem;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .illustration {
+    max-width: 250px;
+  }
+}
