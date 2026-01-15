@@ -242,7 +242,7 @@
 
 .CVButtonArrow {
   position: absolute;
-  right: -16px;              
+  right: -12px;              
   opacity: 0;
   transform: translateX(-6px);
   transition: opacity 0.3s ease, transform 0.3s ease;
