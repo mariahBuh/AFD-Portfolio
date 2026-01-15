@@ -1,21 +1,28 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import ThemeToggle from "../../features/theme/ThemeToggle";
 import logo from "../../assets/logo.png";
 import styles from "./header.module.css";
 
-
 export default function Header() {
-  const [visible, setVisible] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  const [visible, setVisible] = useState(!isHome);
 
   useEffect(() => {
+    if (!isHome) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setVisible(true);
+      return;
+    }
+
     const onScroll = () => {
       setVisible(window.scrollY > window.innerHeight * 0.7);
     };
 
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <header

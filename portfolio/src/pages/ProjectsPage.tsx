@@ -1,14 +1,29 @@
-import ProjectCard from "../components/Projects/ProjectsSection";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { fetchProjects, filterByTech } from "../features/projects/projectsSlice";
+import ProjectsSection from "../components/Projects/ProjectsSection";
 
 export default function ProjectsPage() {
-  return (
-    <section>
-      <h2>Projects</h2>
+  const dispatch = useAppDispatch();
+  const { filtered, selectedTech, status, error } = useAppSelector(
+    (state) => state.projects
+  );
 
-      <div>
-        <ProjectCard title="Portfolio Website" tech="React" />
-        <ProjectCard title="Pantry App" tech="Vue + Firebase" />
-      </div>
-    </section>
+  useEffect(() => {
+    dispatch(fetchProjects());
+  }, [dispatch]);
+
+  if (status === "loading") return <p>Loading projects…</p>;
+  if (status === "failed") return <p>{error}</p>;
+
+  const filters = ["All", "React", "Node"];
+
+  return (
+    <ProjectsSection
+      projects={filtered}
+      filters={filters}
+      activeFilter={selectedTech}
+      onFilterChange={(filter) => dispatch(filterByTech(filter))}
+    />
   );
 }

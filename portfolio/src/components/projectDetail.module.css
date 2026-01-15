@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+.projectDetailPage {
+  font-family: "Montserrat", sans-serif;
+  background: #fafafa;
+  padding: 4rem 2rem;
+}
+
+.breadcrumb {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+.breadcrumb a {
+  color: #383838;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #70a4e7;
+}
+
+.projectContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.projectLeft {
+  width: 100%;
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.projectImage:hover {
+  transform: scale(1.02);
+}
+
+.projectRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.projectTitle {
+  font-family: "Bodoni Moda", serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #383838;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.projectDescription {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+}
+
+.liveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  background: #70a4e7;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Montserrat", sans-serif;
+  width: fit-content;
+  margin-top: 1rem;
+}
+
+.btnIcon {
+  transition: transform 0.3s ease;
+  color: #fff;
+}
+
+.liveBtn:hover .btnIcon {
+  transform: translateX(4px);
+}
+
+.liveBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.viewText {
+  transition: transform 0.3s ease;
+  color: #fff;
+}
+
+
+.btnIcon {
+  position: absolute;
+  right: 22px;              
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+.liveBtn:hover .viewText {
+  transform: translateX(-6px);
+  color: #fff;
+}
+
+.liveBtn:hover .btnIcon {
+  opacity: 1;
+  transform: translateX(0) ;
+}
+
+
+/* Responsive */
+@media (max-width: 968px) {
+  .projectContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .projectTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .projectDetailPage {
+    padding: 3rem 1.5rem;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .projectTitle {
+    font-size: 1.8rem;
+  }
+
+  .projectDescription {
+    font-size: 1rem;
+  }
+
+  .liveBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

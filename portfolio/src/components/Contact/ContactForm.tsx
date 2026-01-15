@@ -1,5 +1,12 @@
-import { useState, type ChangeEvent } from "react";
+import { useState, type FormEvent } from "react";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import {
+  submitContactForm,
+  resetStatus,
+} from "../../features/contact/contactSlice";
+
 import styles from "./contact.module.css";
+
 import email from "../../assets/email.png";
 import phone from "../../assets/phone.png";
 import gitLogo from "../../assets/git.png";
@@ -15,6 +22,9 @@ type FormData = {
 };
 
 export default function ContactSection() {
+  const dispatch = useAppDispatch();
+  const { status, error } = useAppSelector((state) => state.contact);
+
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     phoneNumber: "",
@@ -23,20 +33,51 @@ export default function ContactSection() {
     message: "",
   });
 
-  const [focusedField, setFocusedField] = useState<keyof FormData | null>(null);
+  const [errors, setErrors] = useState<Partial<FormData>>({});
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const validateForm = () => {
+    const newErrors: Partial<FormData> = {};
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = () => {
-    console.log("Form submitted:", formData);
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    dispatch(submitContactForm(formData));
+
+    setFormData({
+      fullName: "",
+      phoneNumber: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+
+    setTimeout(() => {
+      dispatch(resetStatus());
+    }, 3000);
   };
 
   return (
@@ -50,7 +91,6 @@ export default function ContactSection() {
           <div className={styles.contactInfo}>
             <div className={styles.infoItem}>
               <div className={styles.iconCircle}>
-                {" "}
                 <img src={email} alt="Email" />
               </div>
               <span className={styles.infoText}>
@@ -60,7 +100,6 @@ export default function ContactSection() {
 
             <div className={styles.infoItem}>
               <div className={styles.iconCircle}>
-                {" "}
                 <img src={phone} alt="Phone" />
               </div>
               <span className={styles.infoText}>+356 99332917</span>
@@ -71,21 +110,13 @@ export default function ContactSection() {
             <p className={styles.socialsLabel}>Socials:</p>
             <div className={styles.socials}>
               <a href="#" aria-label="LinkedIn">
-                <img
-                  src={linkedinLogo}
-                  alt="LinkedIn"
-                  className={styles.socialIcon}
-                />
+                <img src={linkedinLogo} alt="LinkedIn" />
               </a>
               <a href="#" aria-label="GitHub">
-                <img src={gitLogo} alt="GitHub" className={styles.socialIcon} />
+                <img src={gitLogo} alt="GitHub" />
               </a>
               <a href="#" aria-label="Instagram">
-                <img
-                  src={instagramLogo}
-                  alt="Instagram"
-                  className={styles.socialIcon}
-                />
+                <img src={instagramLogo} alt="Instagram" />
               </a>
             </div>
           </div>
@@ -93,80 +124,115 @@ export default function ContactSection() {
 
         {/* RIGHT */}
         <div className={styles.contactRight}>
-          <div className={styles.contactForm}>
+          <form
+            className={styles.contactForm}
+            onSubmit={handleSubmit}
+            noValidate
+          >
             <div className={styles.formRow}>
-              <input
-                name="fullName"
-                placeholder="Full name"
-                value={formData.fullName}
-                onChange={handleChange}
-                onFocus={() => setFocusedField("fullName")}
-                onBlur={() => setFocusedField(null)}
-                className={`${styles.input} ${
-                  focusedField === "fullName" ? styles.focused : ""
-                }`}
-              />
+              <div className={styles.inputGroup}>
+                <input
+                  placeholder="Full name"
+                  value={formData.fullName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, fullName: e.target.value })
+                  }
+                  className={styles.input}
+                />
+                {errors.fullName && (
+                  <span className={styles.errorText}>
+                    {errors.fullName}
+                  </span>
+                )}
+              </div>
 
-              <input
-                name="phoneNumber"
-                placeholder="Phone number"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                onFocus={() => setFocusedField("phoneNumber")}
-                onBlur={() => setFocusedField(null)}
-                className={`${styles.input} ${
-                  focusedField === "phoneNumber" ? styles.focused : ""
-                }`}
-              />
+              <div className={styles.inputGroup}>
+                <input
+                  placeholder="Phone number"
+                  value={formData.phoneNumber}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phoneNumber: e.target.value })
+                  }
+                  className={styles.input}
+                />
+              </div>
             </div>
 
             <div className={styles.formRow}>
-              <input
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                onFocus={() => setFocusedField("email")}
-                onBlur={() => setFocusedField(null)}
-                className={`${styles.input} ${
-                  focusedField === "email" ? styles.focused : ""
-                }`}
-              />
+              <div className={styles.inputGroup}>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className={styles.input}
+                />
+                {errors.email && (
+                  <span className={styles.errorText}>{errors.email}</span>
+                )}
+              </div>
 
-              <input
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                onFocus={() => setFocusedField("subject")}
-                onBlur={() => setFocusedField(null)}
-                className={`${styles.input} ${
-                  focusedField === "subject" ? styles.focused : ""
-                }`}
-              />
+              <div className={styles.inputGroup}>
+                <input
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={(e) =>
+                    setFormData({ ...formData, subject: e.target.value })
+                  }
+                  className={styles.input}
+                />
+                {errors.subject && (
+                  <span className={styles.errorText}>
+                    {errors.subject}
+                  </span>
+                )}
+              </div>
             </div>
 
-            <textarea
-              name="message"
-              placeholder="Message"
-              rows={6}
-              value={formData.message}
-              onChange={handleChange}
-              onFocus={() => setFocusedField("message")}
-              onBlur={() => setFocusedField(null)}
-              className={`${styles.textarea} ${
-                focusedField === "message" ? styles.focused : ""
-              }`}
-            />
+            <div className={styles.inputGroup}>
+              <textarea
+                placeholder="Message"
+                rows={6}
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+                className={styles.textarea}
+              />
+              {errors.message && (
+                <span className={styles.errorText}>
+                  {errors.message}
+                </span>
+              )}
+            </div>
 
-            <button className={styles.submitButton} /*onClick={handleSubmit}*/>
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={status === "loading"}
+            >
               <span className={styles.submitBtnInner}>
-                <span className={styles.submitText}>Send message</span>
+                <span className={styles.submitText}>
+                  {status === "loading" ? "Sending..." : "Send message"}
+                </span>
                 <span className={styles.submitArrow}>→</span>
               </span>
             </button>
 
-          </div>
+            {status === "succeeded" && (
+              <p role="status" className={styles.successMsg}>
+                Message sent successfully ✓
+              </p>
+            )}
+
+            {status === "failed" && (
+              <p role="alert" className={styles.errorMsg}>
+                {error}
+              </p>
+            )}
+          </form>
         </div>
       </div>
     </section>
