@@ -151,17 +151,10 @@
 .skillsScroller {
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden; /* Remove auto scroll, as we're doing it via JS */
   overflow-y: hidden;
   padding-bottom: 16px;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
   position: relative;
-}
-
-.skillsScroller::-webkit-scrollbar {
-  display: none;
 }
 
 .skillsTrack {
@@ -185,7 +178,7 @@
 }
 
 .skillCard img {
-  width: 50%;
+  width: 80%;
   height: auto;
   object-fit: contain;
 }
@@ -194,15 +187,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.skillsScroller::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 100%;
-  pointer-events: none;
-}
 
 /* BUTTONS */
 .CVButton,

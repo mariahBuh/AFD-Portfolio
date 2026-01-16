@@ -77,6 +77,7 @@
 }
 
 .projectCard {
+  width: 380px;
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
@@ -87,7 +88,7 @@
 
 .projectCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .projectImage {
@@ -135,6 +136,65 @@
   border: 1px solid #e0e0e0;
 }
 
+.projectCard {
+  width: 380px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.projectImage {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .projectImage img {
+  transform: scale(1.05);
+}
+
+.projectContent {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #383838;
+  margin-bottom: 1rem;
+}
+
+.projectFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.projectTech {
+  padding: 0.4rem 1rem;
+  background: #f5f5f5;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #666;
+  border: 1px solid #e0e0e0;
+}
 
 /* VIEW BUTTON */
 .viewBtn {
@@ -180,7 +240,7 @@
 
 .viewBtnArrow {
   position: absolute;
-  right: -16px;              
+  right: -16px;
   opacity: 0;
   transform: translateX(-6px);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -192,7 +252,7 @@
 
 .viewBtn:hover .viewBtnArrow {
   opacity: 1;
-  transform: translateX(0) ;
+  transform: translateX(0);
 }
 
 /* VIEW ALL */
@@ -222,7 +282,7 @@
 
 .viewAllArrow {
   position: absolute;
-  right: -16px;              
+  right: -16px;
   opacity: 0;
   transform: translateX(-6px);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -234,9 +294,8 @@
 
 .viewAllBtn:hover .viewAllArrow {
   opacity: 1;
-  transform: translateX(0) ;
+  transform: translateX(0);
 }
-
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
