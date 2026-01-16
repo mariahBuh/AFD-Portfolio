@@ -117,7 +117,7 @@
 
 @media (prefers-color-scheme: dark) {
   .siteHeader {
-    background-color: #fff;
+    background-color: var(--bg);
   }
 
   .navLinks a {

@@ -2,7 +2,6 @@
 
 .contactSection {
   padding: 4rem 2rem 0rem 2rem;
-  background-color: #fafafa;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -71,6 +70,7 @@
   font-family: "Bodoni Moda", serif;
   font-weight: 700;
   margin: 0;
+  color: #383838;
 }
 
 .contactInfo {
@@ -83,6 +83,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  color: #383838;
 }
 
 .socials {

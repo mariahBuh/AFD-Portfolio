@@ -1,65 +1,63 @@
+/* Toggle button */
 .toggle {
   width: 56px;
   height: 30px;
-
-  background: #ffffff;
+  background: var(--bg); /* Using theme variable */
   border-radius: 999px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-
   display: flex;
   align-items: center;
   padding: 4px;
-
   cursor: pointer;
   transition: background-color 0.3s ease;
   outline: none;
   border: none;
-
   appearance: none;
   -webkit-appearance: none;
-
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Wrapper for toggle and icon */
 .wrapper {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+/* Icon styling */
 .icon {
   width: 18px;
   height: 18px;
 }
 
+/* Knob (toggle button circle) */
 .knob {
   width: 22px;
   height: 22px;
-  background-color: #383838;
+  background-color: var(--text); /* Set default color */
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
 
-/* dark mode state */
-.dark {
-  background-color: #383838;
+/* Dark mode state */
+[data-theme="dark"] .toggle {
+  background-color: #fff; /* Dark background for toggle */
 }
 
-.dark .knob {
+[data-theme="dark"] .knob {
   transform: translateX(26px);
-  background-color: #ffffff;
+  background-color: #383838; /* White knob in dark mode */
 }
 
-/* accessibility */
-
+/* Hover effect */
 .toggle:hover .knob {
-  background-color: #70a4e7;
+  background-color: #70a4e7; /* Light hover effect */
   transition: background-color 0.3s ease;
 }
 
+/* Focused and active states */
 .toggle:focus,
 .toggle:focus-visible,
 .toggle:active {
   outline: none;
-  box-shadow: none;
 }

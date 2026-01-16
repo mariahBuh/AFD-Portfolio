@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, Link } from "react-router-dom";
 import ThemeToggle from "../../features/theme/ThemeToggle";
 import logo from "../../assets/logo.png";
+import logoDark from "../../assets/logo-white.png"; // white logo
 import styles from "./header.module.css";
+import { useAppSelector } from "../../app/hooks";
 
 export default function Header() {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const [visible, setVisible] = useState(!isHome);
+
+  const mode = useAppSelector((state) => state.theme.mode);
+  const isDark = mode === "dark";
 
   useEffect(() => {
     if (!isHome) {
@@ -26,19 +31,27 @@ export default function Header() {
 
   return (
     <header
-      className={`${styles.siteHeader} ${
-        visible ? styles.show : styles.hide
-      }`}
+      className={`${styles.siteHeader} ${visible ? styles.show : styles.hide}`}
     >
       <nav className={styles.nav} aria-label="Main navigation">
-        <div className={styles.logo}>
-          <img src={logo} alt="Site logo" />
-        </div>
+        <Link to="/" className={styles.logo} aria-label="Go to homepage">
+          <img
+            src={isDark ? logoDark : logo}
+            alt="Portfolio logo"
+            className={styles.logoImage}
+          />
+        </Link>
 
         <ul className={styles.navLinks}>
-          <li><NavLink to="/about">about</NavLink></li>
-          <li><NavLink to="/projects">projects</NavLink></li>
-          <li><NavLink to="/contact">contact</NavLink></li>
+          <li>
+            <NavLink to="/about">about</NavLink>
+          </li>
+          <li>
+            <NavLink to="/projects">projects</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">contact</NavLink>
+          </li>
         </ul>
 
         <div className={styles.toggleWrapper}>
