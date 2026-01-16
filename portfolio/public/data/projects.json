@@ -5,7 +5,7 @@
     "tech": "React",
     "image": "/projects/budgetBuddy.png",
     "description": "Budget Buddy is a comprehensive personal finance application designed to help users take control of their spending and achieve their financial goals. The app features an intuitive interface with real-time expense tracking, customizable budget categories, and interactive data visualizations that transform complex financial data into easy-to-understand insights. Users can set financial goals, receive spending alerts, and monitor their progress through detailed monthly reports.",
-    "liveUrl": "https://budget-buddy.example.com"
+    "liveUrl": "https://budgetbuddy-f2c60.web.app/"
   },
   {
     "id": "ascension",
@@ -13,7 +13,7 @@
     "tech": "React",
     "image": "/projects/ascension.png",
     "description": "Ascension of the Forgotten is an immersive narrative-driven exploration game built in Unreal Engine that invites players into a hauntingly beautiful liminal space suspended between life and the afterlife. As a lost soul bound by emotion, players must confront three profound trials drawn from their own memories: happiness, sadness, and anger. With stunning visuals powered by Unreal Engine's capabilities and atmospheric storytelling, the game explores themes of emotional healing and self-understanding, creating a unique experience that resonates long after playing.",
-    "liveUrl": "https://budget-buddy.example.com"
+    "liveUrl": "https://aotf-65d19.web.app/"
   },
   {
     "id": "profile-card",
@@ -21,6 +21,6 @@
     "tech": "Node",
     "image": "/projects/profile.png",
     "description": "The Profile Card is a dynamic web application built with Node.js that generates and displays personalized user profile cards with an elegant, modern design. The card features user information including profile images, contact details, social media links, and bio sections, all rendered through efficient server-side templating. The responsive design ensures seamless display across all devices while maintaining fast load times and optimal performance.",
-    "liveUrl": "https://budget-buddy.example.com"
+    "liveUrl": "https://profilecard-7d353.web.app/"
   }
 ]
