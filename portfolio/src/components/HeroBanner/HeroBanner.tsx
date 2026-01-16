@@ -1,6 +1,7 @@
 import styles from "./hero.module.css";
 import HeaderContent from "../Header/headerContent.tsx";
 import HeroScroll from "./heroScroll.tsx";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -14,12 +15,14 @@ export default function Hero() {
           showcasing my work and passion for design <br />& development.
         </p>
 
+        <Link to="/projects"  aria-label="Go to Projects page">
         <button className={styles.cta}>
           <span className={styles.ctaInner}>
             <span className={styles.ctaText}>View projects</span>
             <span className={styles.ctaArrow}>→</span>
           </span>
         </button>
+        </Link>
       </div>
 
       {/* Scrolling skills bar */}

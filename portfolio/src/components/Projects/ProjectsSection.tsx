@@ -36,7 +36,6 @@ export default function ProjectsSection({
           experiences that are clean, accessible, and user-friendly.
         </p>
 
-        {/* FILTERS */}
         <div className={styles.filterButtons}>
           {filters.map((filter) => (
             <button
@@ -52,7 +51,6 @@ export default function ProjectsSection({
           ))}
         </div>
 
-        {/* GRID */}
         <div className={styles.projectsGrid}>
           {visibleProjects.map((project) => (
             <Link

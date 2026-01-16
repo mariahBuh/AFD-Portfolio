@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./about.module.css";
 
 import UX from "../../assets/UX.png";
@@ -83,7 +84,6 @@ export default function AboutSection() {
           />
         </div>
 
-        {/* RIGHT */}
         <div className={styles.right}>
           <h2 className={styles.title}>About me</h2>
 
@@ -92,7 +92,6 @@ export default function AboutSection() {
             creating clean, accessible, and user-friendly digital experiences.
           </p>
 
-          {/* STATS */}
           <div className={styles.stats}>
             {stats.map((stat, index) => (
               <div
@@ -107,7 +106,6 @@ export default function AboutSection() {
             ))}
           </div>
 
-          {/* SKILLS SCROLLER */}
           <div ref={scrollerRef} className={styles.skillsScroller}>
             <div className={styles.skillsTrack}>
               {loopingSkills.map((skill, index) => (
@@ -118,7 +116,6 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* ACTION BUTTONS */}
           <div className={styles.actions}>
             <button className={styles.CVButton}>
               <span className={styles.CVButtonInner}>
@@ -127,12 +124,14 @@ export default function AboutSection() {
               </span>
             </button>
 
-            <button className={styles.learnButton}>
-              <span className={styles.learnButtonInner}>
-                <span className={styles.learnButtonText}>Learn more</span>
-                <span className={styles.learnButtonArrow}>→</span>
-              </span>
-            </button>
+            <Link to="/about" aria-label="Go to About page">
+              <button className={styles.learnButton}>
+                <span className={styles.learnButtonInner}>
+                  <span className={styles.learnButtonText}>Learn more</span>
+                  <span className={styles.learnButtonArrow}>→</span>
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

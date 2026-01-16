@@ -3,6 +3,7 @@
 .contactSection {
   padding: 4rem 2rem 0rem 2rem;
   font-family: "Montserrat", sans-serif;
+  background-color: var(--bg);
 }
 
 .contactSection *,
@@ -11,11 +12,10 @@
   box-sizing: border-box;
 }
 
-
 .contactContainer {
   max-width: 1200px;
   margin: 0 auto;
-  background: #F8F8F8;
+  background: #f8f8f8;
   border-radius: 30px;
   padding: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -41,7 +41,6 @@
   overflow: hidden;
 }
 
-
 .contactForm,
 .formRow,
 .formGroup {
@@ -51,7 +50,6 @@
 .contactRight {
   overflow: hidden;
 }
-
 
 .title {
   font-size: 14px;
@@ -95,6 +93,7 @@
   font-size: 16px;
   font-weight: 600;
   margin-right: 10px;
+  color: #383838;
 }
 
 .socials a {
@@ -165,7 +164,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-
 .textarea {
   resize: vertical;
   min-height: 120px;
@@ -182,7 +180,6 @@
   font-weight: 500;
   width: 100%;
   max-width: 100%;
-
 }
 
 .submitBtnInner {
@@ -198,7 +195,7 @@
 
 .submitArrow {
   position: absolute;
-  right: -16px;              
+  right: -16px;
   opacity: 0;
   transform: translateX(-6px);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -210,9 +207,8 @@
 
 .submitButton:hover .submitArrow {
   opacity: 1;
-  transform: translateX(0) ;
+  transform: translateX(0);
 }
-
 
 .inputGroup {
   display: flex;
@@ -231,4 +227,62 @@
   color: #e63946;
   font-size: 0.8rem;
   line-height: 1.2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .contactLeft,
+  .contactRight {
+    padding: 0;
+  }
+
+  .mainTitle {
+    font-size: 2.1rem;
+  }
+
+  .formRow {
+    gap: 12px;
+  }
+
+  .input,
+  .textarea {
+    font-size: 1rem; /* FIXED */
+  }
+}
+
+@media (max-width: 480px) {
+  .contactSection {
+    padding: 2.5rem 1.25rem 0;
+  }
+
+  .contactContainer {
+    padding: 1.75rem;
+    border-radius: 20px;
+  }
+
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+
+  .input,
+  .textarea {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .submitButton {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .socials {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }

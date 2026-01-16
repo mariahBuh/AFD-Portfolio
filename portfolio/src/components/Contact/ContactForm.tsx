@@ -109,14 +109,31 @@ export default function ContactSection() {
           <div className={styles.socialsSection}>
             <p className={styles.socialsLabel}>Socials:</p>
             <div className={styles.socials}>
-              <a href="#" aria-label="LinkedIn">
-                <img src={linkedinLogo} alt="LinkedIn" />
+              <a
+                href="https://www.linkedin.com/in/mariah-buhagiar-0a1a5a24b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
+              >
+                <img src={linkedinLogo} alt="" />
               </a>
-              <a href="#" aria-label="GitHub">
-                <img src={gitLogo} alt="GitHub" />
+
+              <a
+                href="https://github.com/mariahBuh"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile"
+              >
+                <img src={gitLogo} alt="" />
               </a>
-              <a href="#" aria-label="Instagram">
-                <img src={instagramLogo} alt="Instagram" />
+
+              <a
+                href="https://www.instagram.com/mariahbuhagiar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram profile"
+              >
+                <img src={instagramLogo} alt="" />
               </a>
             </div>
           </div>
@@ -140,9 +157,7 @@ export default function ContactSection() {
                   className={styles.input}
                 />
                 {errors.fullName && (
-                  <span className={styles.errorText}>
-                    {errors.fullName}
-                  </span>
+                  <span className={styles.errorText}>{errors.fullName}</span>
                 )}
               </div>
 
@@ -184,9 +199,7 @@ export default function ContactSection() {
                   className={styles.input}
                 />
                 {errors.subject && (
-                  <span className={styles.errorText}>
-                    {errors.subject}
-                  </span>
+                  <span className={styles.errorText}>{errors.subject}</span>
                 )}
               </div>
             </div>
@@ -202,9 +215,7 @@ export default function ContactSection() {
                 className={styles.textarea}
               />
               {errors.message && (
-                <span className={styles.errorText}>
-                  {errors.message}
-                </span>
+                <span className={styles.errorText}>{errors.message}</span>
               )}
             </div>
 

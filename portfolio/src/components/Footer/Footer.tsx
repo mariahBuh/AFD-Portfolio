@@ -19,22 +19,31 @@ export default function Footer() {
           </p>
 
           <div className={styles.socials}>
-            <a href="#" aria-label="LinkedIn">
-              <img
-                src={linkedinLogo}
-                alt="LinkedIn"
-                className={styles.socialIcon}
-              />
+            <a
+              href="https://www.linkedin.com/in/mariah-buhagiar-0a1a5a24b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
+            >
+              <img src={linkedinLogo} alt="" />
             </a>
-            <a href="#" aria-label="GitHub">
-              <img src={gitLogo} alt="GitHub" className={styles.socialIcon} />
+
+            <a
+              href="https://github.com/mariahBuh"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
+            >
+              <img src={gitLogo} alt="" />
             </a>
-            <a href="#" aria-label="Instagram">
-              <img
-                src={instagramLogo}
-                alt="Instagram"
-                className={styles.socialIcon}
-              />
+
+            <a
+              href="https://www.instagram.com/mariahbuhagiar/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram profile"
+            >
+              <img src={instagramLogo} alt="" />
             </a>
           </div>
         </div>

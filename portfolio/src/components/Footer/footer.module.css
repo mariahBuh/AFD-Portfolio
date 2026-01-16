@@ -54,10 +54,12 @@
   transition: opacity 0.3s ease;
 }
 
-.socialIcon {
+.socials a img {
   width: 16px;
   height: 16px;
 }
+
+
 
 /* Links & Contact */
 .links,
