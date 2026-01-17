@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import ThemeToggle from "../../features/theme/ThemeToggle";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/Logo.png";
 import logoDark from "../../assets/logo-white.png"; // white logo
 import styles from "./header.module.css";
 import { useAppSelector } from "../../app/hooks";
