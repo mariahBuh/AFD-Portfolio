@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./about.module.css";
 
 import UX from "../../assets/UX.png";
-import figma from "../../assets/figma.png";
+import figma from "../../assets/Figma.png";
 import js from "../../assets/javascript.png";
 import vue from "../../assets/vue.png";
 import react from "../../assets/react.png";
