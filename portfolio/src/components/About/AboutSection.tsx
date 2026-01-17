@@ -117,12 +117,16 @@ export default function AboutSection() {
           </div>
 
           <div className={styles.actions}>
-            <button className={styles.CVButton}>
+            <a
+              href="../public/cv.pdf"
+              download="Mariah_Buhagiar_CV_2026.pdf" 
+              className={styles.CVButton}
+            >
               <span className={styles.CVButtonInner}>
                 <span className={styles.CVButtonText}>Download CV</span>
                 <span className={styles.CVButtonArrow}>↓</span>
               </span>
-            </button>
+            </a>
 
             <Link to="/about" aria-label="Go to About page">
               <button className={styles.learnButton}>
