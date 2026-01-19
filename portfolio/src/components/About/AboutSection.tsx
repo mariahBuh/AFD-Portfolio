@@ -25,7 +25,6 @@ export default function AboutSection() {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
-    // Optional but recommended
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
@@ -37,8 +36,7 @@ export default function AboutSection() {
     const animate = () => {
       scrollLeft += speed;
 
-      // When we've scrolled half the content,
-      // reset back to start invisibly
+  
       if (scrollLeft >= scroller.scrollWidth / 2) {
         scrollLeft = 0;
       }
