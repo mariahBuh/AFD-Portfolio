@@ -1,6 +1,10 @@
+// React component for the "About Me" section of a portfolio website.
+
+//imports React hooks and CSS module for styling
 import { useEffect, useRef, useState } from "react";
 import styles from "./about.module.css";
 
+//imports images used as icons for skills
 import UX from "../../assets/UX.png";
 import figma from "../../assets/Figma.png";
 import js from "../../assets/javascript.png";
@@ -11,53 +15,66 @@ import css from "../../assets/css.png";
 import canva from "../../assets/canva.png";
 import html from "../../assets/html.png";
 
+//defines and exports the AboutSection component
 export default function AboutSection() {
+  //state to track visibility for animation
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  //ref for the skills scroller element
   const scrollerRef = useRef<HTMLDivElement | null>(null);
 
+  //effect to set visibility to true on mount for fade-in animation
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsVisible(true);
   }, []);
 
+  //effect to create infinite scrolling animation for skills
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
-    // Optional but recommended
+    // Check for reduced motion preference
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
 
+    // Animation loop
     let animationId: number;
     const speed = 0.7; // px per frame
     let scrollLeft = 0;
 
+    // Recursive animation function
     const animate = () => {
       scrollLeft += speed;
 
-      // When we've scrolled half the content,
-      // reset back to start invisibly
+      // Reset scroll position to create infinite loop effect
       if (scrollLeft >= scroller.scrollWidth / 2) {
+        
         scrollLeft = 0;
       }
 
       scroller.scrollLeft = scrollLeft;
+
+      // Request next frame
       animationId = requestAnimationFrame(animate);
     };
 
+    // Start the animation
     animationId = requestAnimationFrame(animate);
 
+    // Cleanup function to cancel animation on unmount
     return () => {
       cancelAnimationFrame(animationId);
     };
   }, []);
 
+  //data for stats and skills
   const stats = [
     { number: "5", label: "years of education" },
     { number: "2", label: "years of work experience" },
   ];
 
+  //array of skills with associated images
   const skills = [
     { image: figma },
     { image: js },
@@ -69,8 +86,10 @@ export default function AboutSection() {
     { image: canva },
   ];
 
+  //duplicate skills array for seamless scrolling
   const loopingSkills = [...skills, ...skills];
 
+  //renders the AboutSection component
   return (
     <section className={styles.aboutSection}>
       <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
@@ -105,7 +124,7 @@ export default function AboutSection() {
               <div
                 key={index}
                 className={styles.statCard}
-                style={{ animationDelay: `${index * 120}ms` }}
+                style={{ animationDelay: `${index * 120}ms` }} 
               >
                 <span className={styles.statNumber}>{stat.number}</span>
                 <br />

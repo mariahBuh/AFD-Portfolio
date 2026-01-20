@@ -1,8 +1,12 @@
+// This script contains the Hero component for the portfolio homepage
+
+// import necessary modules and assets
 import styles from "./hero.module.css";
 import HeaderContent from "../Header/headerContent.tsx";
 import HeroScroll from "./heroScroll.tsx";
 import { Link } from "react-router-dom";
 
+// define and export the Hero component
 export default function Hero() {
   return (
     <section className={styles.hero}>

@@ -1,5 +1,6 @@
+/* Global CSS styles and CSS variables for theming */
 
-
+/* CSS Variables for Theming */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -16,7 +17,7 @@
   --moon-icon: url("../../assets/moon.png");
 }
 
-
+/* Light Theme Variables */
 :root[data-theme="light"] {
   --bg: #fafafa;
   --text: #383838;
@@ -29,6 +30,7 @@
   --icon: var(--sun-icon);
 }
 
+/* Dark Theme Variables */
 :root[data-theme="dark"] {
   --bg: #383838;
   --text: #ffffff;

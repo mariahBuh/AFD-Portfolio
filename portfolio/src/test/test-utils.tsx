@@ -1,3 +1,5 @@
+// this file contains utility functions for testing React components with Redux and React Router
+
 import React, { type PropsWithChildren } from "react";
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";

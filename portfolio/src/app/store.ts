@@ -1,3 +1,5 @@
+// This sceipt imports Redux Toolkit's helper for creating a Redux store with good defaults
+// Its function is to set up the store with reducers for different slices of state: theme, projects, and contact.
 import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "../features/theme/themeSlice";
 import projectsReducer from "../features/projects/projectsSlice";

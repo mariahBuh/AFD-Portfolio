@@ -1,3 +1,5 @@
+
+// This is the Footer component for the portfolio website. It includes branding, navigation links, and contact information with icons.
 import styles from "./footer.module.css";
 import logo from "../../assets/logo-white.png";
 import gitLogo from "../../assets/git.png";
@@ -6,6 +8,8 @@ import instagramLogo from "../../assets/instagram.png";
 import emailLogo from "../../assets/email.png";
 import phoneLogo from "../../assets/phone.png";
 
+
+// define and export the Footer component
 export default function Footer() {
   return (
     <footer className={styles.footer}>

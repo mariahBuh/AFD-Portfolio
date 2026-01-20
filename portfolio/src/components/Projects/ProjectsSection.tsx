@@ -1,7 +1,10 @@
+// This component displays a section showcasing various projects with filtering options.
+
 import styles from "./projects.module.css";
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
 
+// define the Project type and component props
 type Project = {
   id: string;
   title: string;
@@ -9,6 +12,7 @@ type Project = {
   tech: string;
 };
 
+// define the props for the ProjectsSection component
 interface ProjectsSectionProps {
   projects: Project[];
   filters: string[];
@@ -16,6 +20,7 @@ interface ProjectsSectionProps {
   onFilterChange: (filter: string) => void;
 }
 
+// define and export the ProjectsSection component
 export default function ProjectsSection({
   projects,
   filters,
@@ -26,6 +31,7 @@ export default function ProjectsSection({
     return projects;
   }, [projects]);
 
+  // render the ProjectsSection component
   return (
     <section className={styles.projectsSection}>
       <div className={styles.projectsContainer}>

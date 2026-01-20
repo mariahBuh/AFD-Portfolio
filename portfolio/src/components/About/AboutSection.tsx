@@ -1,7 +1,11 @@
+// This component displays the About Me section with stats, skills, and action buttons.
+
+// import necessary hooks and modules
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./about.module.css";
 
+// import skill icons
 import UX from "../../assets/UX.png";
 import figma from "../../assets/Figma.png";
 import js from "../../assets/javascript.png";
@@ -12,15 +16,18 @@ import css from "../../assets/css.png";
 import canva from "../../assets/canva.png";
 import html from "../../assets/html.png";
 
+// define and export the AboutSection component
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
 
+  // set visibility for fade-in effect
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsVisible(true);
   }, []);
 
+  // set up infinite scrolling animation for skills
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
@@ -36,7 +43,7 @@ export default function AboutSection() {
     const animate = () => {
       scrollLeft += speed;
 
-  
+      // Reset scroll position to create infinite loop effect
       if (scrollLeft >= scroller.scrollWidth / 2) {
         scrollLeft = 0;
       }
@@ -47,16 +54,19 @@ export default function AboutSection() {
 
     animationId = requestAnimationFrame(animate);
 
+    // Cleanup function to cancel animation on unmount
     return () => {
       cancelAnimationFrame(animationId);
     };
   }, []);
 
+  //data for stats and skills
   const stats = [
     { number: "5", label: "years of education" },
     { number: "2", label: "years of work experience" },
   ];
 
+  //array of skills with associated images
   const skills = [
     { image: figma },
     { image: js },
@@ -68,8 +78,10 @@ export default function AboutSection() {
     { image: canva },
   ];
 
+  //duplicate skills array for seamless scrolling
   const loopingSkills = [...skills, ...skills];
 
+  //renders the AboutSection component
   return (
     <section className={styles.aboutSection}>
       <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
@@ -126,7 +138,7 @@ export default function AboutSection() {
               </span>
             </a>
 
-            <Link to="/about" aria-label="Go to About page">
+            <Link to="/about" aria-label="Go to About page" onClick={() => console.log("Learn more clicked")}>
               <button className={styles.learnButton}>
                 <span className={styles.learnButtonInner}>
                   <span className={styles.learnButtonText}>Learn more</span>
