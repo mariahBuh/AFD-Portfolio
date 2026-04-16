@@ -26,7 +26,7 @@ export default function ProjectsPage() {
   if (status === "failed") return <p>{error}</p>;
 
   // define available filters
-  const filters = ["All", "React", "Node"];
+  const filters = ["All", "Figma", "Node"];
 
   // render the ProjectsSection with filtered projects and filtering options
   return (

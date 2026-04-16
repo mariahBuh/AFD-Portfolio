@@ -26,7 +26,7 @@ const mockProjects = [
     id: '1',
     title: 'Portfolio Website',
     image: 'https://via.placeholder.com/300x200',
-    tech: 'React, TypeScript',
+    tech: 'Figma, TypeScript',
   },
   {
     id: '2',
@@ -37,7 +37,7 @@ const mockProjects = [
 ];
 
 // mock filters and active filter
-const mockFilters = ['All', 'React', 'Vue'];
+const mockFilters = ['All', 'Figma', 'Node'];
 const mockActiveFilter = 'All';
 
 // define various story scenarios for the ProjectsSection component

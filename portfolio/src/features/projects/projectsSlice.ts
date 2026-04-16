@@ -64,7 +64,11 @@ const projectsSlice = createSlice({
         action.payload === "All"
           ? state.items
           : state.items.filter(
-              (project) => project.tech === action.payload
+              (project) =>
+                project.tech
+                  .split(",")
+                  .map((t) => t.trim().toLowerCase())
+                  .includes(action.payload.toLowerCase())
             );
     },
   },

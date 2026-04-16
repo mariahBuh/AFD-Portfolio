@@ -151,7 +151,7 @@
 .skillsScroller {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden; /* Remove auto scroll, as we're doing it via JS */
+  overflow-x: hidden; 
   overflow-y: hidden;
   padding-bottom: 16px;
   position: relative;

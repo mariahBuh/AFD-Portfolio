@@ -1,0 +1,74 @@
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Remove blue focus ring on click */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 1;
+  padding: 0 8px;
+  border-radius: 50%;
+  transition: color 0.2s, background 0.2s;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.arrow:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.arrow:hover {
+  color: #70a4e7;
+  background: rgba(112,164,231,0.08);
+}
+
+.arrow:first-of-type {
+  left: 10px;
+}
+.arrow:last-of-type {
+  right: 10px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot, .activeDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 4px;
+  background: #ccc;
+  display: inline-block;
+  cursor: pointer;
+}
+.activeDot {
+  background: #333;
+}

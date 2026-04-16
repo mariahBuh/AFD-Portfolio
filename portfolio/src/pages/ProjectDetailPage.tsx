@@ -4,7 +4,9 @@
 // import necessary modules and hooks
 import { Link, useParams } from "react-router-dom";
 import { useAppSelector } from "../app/hooks";
+
 import styles from "../components/projectDetail.module.css";
+import Carousel from "../components/Carousel";
 
 // define and export the ProjectDetailPage component
 export default function ProjectDetailPage() {
@@ -22,7 +24,27 @@ export default function ProjectDetailPage() {
     return <p>Project not found.</p>;
   }
   
-  // render the project detail page
+  // Determine if this project should show a carousel
+  let carouselImages: string[] = [];
+  if (project.id === "ui-designs") {
+    carouselImages = [
+      "/projects/UI/AA_1.png",
+      "/projects/UI/AA_2.png",
+      "/projects/UI/AA_3.png",
+      "/projects/UI/Beta_1.png",
+      "/projects/UI/Beta_2.png",
+      "/projects/UI/Beta_3.png",
+      "/projects/UI/Prime_1.png",
+      "/projects/UI/Prime_2.png",
+    ];
+  } else if (project.id === "variant-generator") {
+    carouselImages = [
+      "/projects/Hetronic/Variant_1.png",
+      "/projects/Hetronic/Variant_2.png",
+      "/projects/Hetronic/Variant_3.png",
+    ];
+  }
+
   return (
     <section className={styles.projectDetailPage}>
       <nav className={styles.breadcrumb} aria-label="Breadcrumb">
@@ -31,11 +53,15 @@ export default function ProjectDetailPage() {
 
       <div className={styles.projectContent}>
         <div className={styles.projectLeft}>
-          <img
-            src={project.image}
-            alt={project.title}
-            className={styles.projectImage}
-          />
+          {carouselImages.length > 0 ? (
+            <Carousel images={carouselImages} altPrefix={project.title} />
+          ) : (
+            <img
+              src={project.image}
+              alt={project.title}
+              className={styles.projectImage}
+            />
+          )}
         </div>
 
         <div className={styles.projectRight}>
@@ -54,8 +80,6 @@ export default function ProjectDetailPage() {
               <span className={styles.btnIcon}>→</span>
             </a>
           )}
-
-
         </div>
       </div>
     </section>

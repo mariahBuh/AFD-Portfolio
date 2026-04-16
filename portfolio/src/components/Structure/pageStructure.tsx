@@ -1,7 +1,7 @@
 // This component defines the overall page structure including header, footer, and main content area.
 
 // It imports necessary modules and components.
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom"; // for routing
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
